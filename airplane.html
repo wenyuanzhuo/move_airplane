@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>飞机动画</title>
+
+  <style media="screen">
+
+  @keyframes drive {
+     0%{
+        transform: translate(0,0);
+         opacity: 0;
+    }
+     3%{
+        transform: translate(20%,20%);
+         opacity: 0;
+    }
+     6%{
+        transform: translate(40%,40%);
+         opacity: 0;
+    }
+     9%{
+        transform: translate(60%,60%);
+         opacity: 0;
+    }
+     12%{
+        transform: translate(70%,70%);
+         opacity: 0;
+    }
+     15%{
+        transform: translate(80%,80%);
+         opacity: 0;
+    }
+     18%{
+       transform: translate(90%,90%);
+        opacity: 0;
+   }
+     21%{
+      transform: translate(100%,100%);
+       opacity: 0;
+  }
+}
+   *, :after, :before{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   html {
+      -webkit-tap-highlight-color: transparent;
+     }
+   html, body{
+     height: 100%;
+   }
+   body {
+     overflow: hidden;
+     height: 100%;
+     background: yellow;
+   }
+   .super-container {
+     position: relative;
+     animation-name: drive;
+     animation-duration: 5s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-direction: normal;
+}
+ .propeller {
+     position: absolute;
+     transform: rotate(90deg);
+     transform-origin: center;
+     top: 208px;
+     left: 106px;
+
+
+   }
+
+
+  </style>
+</head>
+<body>
+  <div class="super-container">
+      <div class="plane-wrapper">
+        <img src="https://fir.im/images/plane.svg" alt="" class="plane">
+      <div class="ratate-container">
+        <img src="https://fir.im/images/propeller.svg" alt="" class="propeller">
+        </div>
+      </div>
+  </div>*/
+<script>
+
+  var secondHand = document.querySelector('.propeller');
+  function setDate() {
+     const now = new Date();
+     const seconds = now.getMilliseconds();
+     const secondsDegrees = (seconds / 60)*360;
+     secondHand.style.transform = 'rotate(' +secondsDegrees+ 'deg)';
+
+
+  }
+  setInterval(setDate,5);
+  setDate();
+</script>
+
+
+</body>
+</html>
